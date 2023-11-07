@@ -2,12 +2,18 @@ package com.example.SpringifiedLoanApplication;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SpringBootApplication
 public class SpringifiedLoanApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InvalidCreditScoreException {
 		SpringApplication.run(SpringifiedLoanApplication.class, args);
+		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+		LoanAgent loanAgent = applicationContext.getBean("loanAgent", LoanAgent.class);
+		loanAgent.processLoanApplication(new LoanApplication());
 	}
 }
 
