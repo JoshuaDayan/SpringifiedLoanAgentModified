@@ -17,6 +17,9 @@ public class LoanAgent {
         if(creditScore >= minimumCreditScore) {
             response = true;
         }
+        System.out.println(response);
+        System.out.println(ssn);
+        System.out.println(creditScore);
         return response;
     }
 
