@@ -29,7 +29,7 @@ public class AppConfig {
     }
 
     @Bean(name = "loanAgent")
-    public LoanAgent setLoanAgent() {
+    public LoanAgent getLoanAgent() {
         LoanAgent loanAgent = new LoanAgent();
         loanAgent.setAgency(getAgency());
         loanAgent.setMinimumCreditScore(600);
